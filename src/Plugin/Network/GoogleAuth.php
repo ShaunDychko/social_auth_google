@@ -145,7 +145,7 @@ class GoogleAuth extends NetworkBase implements GoogleAuthInterface {
         'redirectUri' => $this->requestContext->getCompleteBaseUrl() . '/user/login/google/callback',
         'accessType' => 'offline',
         'verify' => FALSE,
-        'hostedDomain' => $settings->getRestrictedDomain(),
+        'hostedDomain' => $settings->getRestrictedDomain() == '' ? NULL : $settings->getRestrictedDomain(),
       ];
 
       // Proxy configuration data for outward proxy.
