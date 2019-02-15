@@ -1,3 +1,35 @@
+## Notes about this fork
+This fork was made in order to update only the league/oauth2-google package to
+3.x in order to avoid the deprecated Google+ API that is being retired by Google.
+Using this fork requires the following in your project's `composer.json` to pick
+up the correct corresponding version of the `drupal/social_api` and `drupal/social_auth`
+modules.
+
+```
+{
+...
+    "repositories": [
+        ...
+        {
+            "type": "vcs",
+            "url": "https://github.com/ShaunDychko/social_auth_google"
+        }
+    },
+    "require": {
+        ...
+        "drupal/social_api": "2.0.0-beta4",
+        "drupal/social_auth": "2.0.0-beta4",
+        "drupal/social_auth_google": "dev-from-2.0-beta3"
+        ...
+    }
+...
+}
+```
+
+The repositories section makes this repo override the `drupal/social_auth_google` package provided by Drupal's repo.
+Details about how this works are here: https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository
+
+
 CONTENTS OF THIS FILE
 ---------------------
 
